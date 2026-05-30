@@ -18,3 +18,8 @@ export const updateCourse = async (id, course) => {
     const response = await courseApi.put(`/${id}`, course);
     return response.data;
 };
+
+export const getCourseById = async (id) => {
+    const response = await courseApi.get(`/${id}`);
+    return response.data;
+};

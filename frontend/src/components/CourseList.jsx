@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllCourses,deleteCourse } from "../services/courseService";
+import { Link } from "react-router-dom";
 
 function CourseList() {
 
@@ -59,11 +60,18 @@ function CourseList() {
                                 <td>{course.duration} Days</td>
                                 <td>₹{course.fees}</td>
                                 <td>
-                                    <button
-                                    className="btn btn-danger btn-sm"
-                                    onClick={() => handleDelete(course.id)}
+                                    <Link
+                                        to={`/edit-course/${course.id}`}
+                                        className="btn btn-primary btn-sm me-2"
                                     >
-                                        Delete      
+                                        Edit
+                                    </Link>
+
+                                    <button
+                                        className="btn btn-danger btn-sm"
+                                        onClick={() => handleDelete(course.id)}
+                                    >
+                                        Delete
                                     </button>
                                 </td>
                             </tr>
